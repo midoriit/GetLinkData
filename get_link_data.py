@@ -222,7 +222,7 @@ class GetLinkData:
             latIdx = self.dlg.latComboBox.currentIndex()
             lonIdx = self.dlg.lonComboBox.currentIndex()
             if latIdx == 0 or lonIdx == 0:
-              QMessageBox.information(self.iface.mainWindow(), \
+              QMessageBox.critical(self.iface.mainWindow(), \
                 self.tr("Error"), self.tr("No geometry"))
               return
 
@@ -233,7 +233,7 @@ class GetLinkData:
             try:
               rsp2 = urllib2.urlopen(req2)
             except urllib2.HTTPError, e:
-              QMessageBox.information(self.iface.mainWindow(), \
+              QMessageBox.critical(self.iface.mainWindow(), \
                 self.tr("Error"), self.tr("Failed to read data"))
               return
             dat2 = json.loads(rsp2.read())
@@ -301,7 +301,7 @@ class GetLinkData:
             newLayer.commitChanges()
             newLayer.updateExtents()
             if lost_features > 0:
-              QMessageBox.information(self.iface.mainWindow(), self.tr("Warning"), \
+              QMessageBox.warning(self.iface.mainWindow(), self.tr("Warning"), \
                 self.tr("Lost {:d} item(s) without geometry").format(lost_features) )
 
     def setID(self):
