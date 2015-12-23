@@ -45,7 +45,7 @@ http://www.w3.org/2000/01/rdf-schema#label
 
 ファイルによっては、緯度経度のプロパティを持ちながら、その値を持たないレコードが含まれていることがあります。その場合には以下のような警告が表示されます。
 
-![Warinig](http://midoriit.com/images/2015/12/GetLinkData06.png)
+![Warinig](http://midoriit.com/images/2015/12/GetLinkData06b.png)
 
 ### Known Issues
 QGISでは属性名の重複はできないため、ファイルに同名のプロパティが複数存在した場合、値が失われることになります。
