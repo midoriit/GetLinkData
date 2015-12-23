@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/plugins/GetLinkData" >
+        <file>icon.png</file>
+    </qresource>
+</RCC>
