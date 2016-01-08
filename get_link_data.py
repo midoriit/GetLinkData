@@ -289,12 +289,30 @@ class GetLinkData:
                   if "uri" in fld:
                     uri = fld["uri"]
                     if uri in dat2[k]:
-                      feature.setAttribute(uri, unicode(dat2[k][uri][0]["value"]))
+                      i=0
+                      values=""
+                      while(True):
+                        if len(dat2[k][uri]) == i:
+                          break
+                        if i > 0:
+                          values = values + ","
+                        values = values + unicode(dat2[k][uri][i]["value"])
+                        i=i+1
+                      feature.setAttribute(uri, values)
                   else:
                     uri = "http://linkdata.org/property/" + id + "#" + \
                       urllib.quote(fld["label"].encode("utf-8"))
                     if uri in dat2[k]:
-                      feature.setAttribute(fld["label"], unicode(dat2[k][uri][0]["value"]))
+                      i=0
+                      values=""
+                      while(True):
+                        if len(dat2[k][uri]) == i:
+                          break
+                        if i > 0:
+                          values = values + ","
+                        values = values + unicode(dat2[k][uri][i]["value"])
+                        i=i+1
+                      feature.setAttribute(fld["label"], values)
                 newLayer.addFeature(feature)
               else:
                 lost_features = lost_features + 1;
@@ -375,12 +393,14 @@ class GetLinkData:
           if fld["id"] == "0":
             self.subject = fld["uri"]
           else:
-            item_list.append(fld["uri"])
+            if fld["uri"] not in item_list:
+              item_list.append(fld["uri"])
         else:
           if fld["id"] == "0":
             self.subject = fld["label"]
           else:
-            item_list.append(fld["label"])
+            if fld["label"] not in item_list:
+              item_list.append(fld["label"])
       self.dlg.latComboBox.addItems(item_list)
       self.dlg.lonComboBox.addItems(item_list)
       self.dlg.labelComboBox.addItems(item_list)
