@@ -47,5 +47,3 @@ http://www.w3.org/2000/01/rdf-schema#label
 
 ![Warinig](http://midoriit.com/images/2015/12/GetLinkData06b.png)
 
-### Known Issues
-QGISでは属性名の重複はできないため、ファイルに同名のプロパティが複数存在した場合、値が失われることになります。
