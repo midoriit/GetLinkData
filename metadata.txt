@@ -10,7 +10,7 @@
 name=GetLinkData
 qgisMinimumVersion=2.0
 description=Retrieve data from LinkData.org
-version=0.2
+version=0.3
 author=Midori IT Office, LLC
 email=info@midoriit.com
 

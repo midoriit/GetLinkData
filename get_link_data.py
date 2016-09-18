@@ -265,9 +265,9 @@ class GetLinkData:
             lat = self.dlg.latComboBox.currentText()
             lon = self.dlg.lonComboBox.currentText()
 
-            if lat != "http://www.w3.org/2003/01/geo/wgs84_pos#lat":
+            if not lat.startswith("http"):
               lat = "http://linkdata.org/property/" + id + "#" + urllib.quote(lat.encode("utf-8"))
-            if lon != "http://www.w3.org/2003/01/geo/wgs84_pos#long":
+            if not lon.startswith("http"):
               lon = "http://linkdata.org/property/" + id + "#" + urllib.quote(lon.encode("utf-8"))
 
             for k in dat2.iterkeys():
@@ -414,7 +414,20 @@ class GetLinkData:
         hasLon = True
         self.dlg.lonComboBox.setCurrentIndex(idx)
         self.dlg.lonComboBox.setEnabled(False)
+      idx = self.dlg.latComboBox.findText(u"http://imi.ipa.go.jp/ns/core/rdf#緯度")
+      if idx > 0:
+        hasLat = True
+        self.dlg.latComboBox.setCurrentIndex(idx)
+        self.dlg.latComboBox.setEnabled(False)
+      idx = self.dlg.lonComboBox.findText(u"http://imi.ipa.go.jp/ns/core/rdf#経度")
+      if idx > 0:
+        hasLon = True
+        self.dlg.lonComboBox.setCurrentIndex(idx)
+        self.dlg.lonComboBox.setEnabled(False)
       idx = self.dlg.labelComboBox.findText("http://www.w3.org/2000/01/rdf-schema#label")
+      if idx > 0:
+        self.dlg.labelComboBox.setCurrentIndex(idx)
+      idx = self.dlg.labelComboBox.findText(u"http://imi.ipa.go.jp/ns/core/rdf#名称")
       if idx > 0:
         self.dlg.labelComboBox.setCurrentIndex(idx)
       self.dlg.button_box.button(QDialogButtonBox.Ok).setEnabled(True)
