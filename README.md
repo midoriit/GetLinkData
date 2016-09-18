@@ -6,7 +6,7 @@ QGISの「プラグイン」メニューから「プラグインの管理とイ�
 ```
 http://midoriit.com/qgis/plugins.xml
 ```
-を追加してから、「全ての」タブで「GetLinkData」をインストールします。
+を追加し、「実験的プラグインも表示する」にチェックを付け、「全ての」タブで「GetLinkData」をインストールします。
 
 ### 使用方法
 QGISの「Web」メニューに追加された「GetLinkData」→「LinkData.orgからデータを取得する」を選択すると、ダイアログボックスが表示されます。
