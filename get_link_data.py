@@ -232,7 +232,7 @@ class GetLinkData:
             req2 = urllib2.Request(url2)
             try:
               rsp2 = urllib2.urlopen(req2)
-            except urllib2.HTTPError, e:
+            except urllib2.HTTPError as e:
               QMessageBox.critical(self.iface.mainWindow(), \
                 self.tr("Error"), self.tr("Failed to read data"))
               return
@@ -334,7 +334,7 @@ class GetLinkData:
       req1 = urllib2.Request(url1)
       try:
         rsp1 = urllib2.urlopen(req1)
-      except urllib2.HTTPError, e:
+      except urllib2.HTTPError as e:
         self.dlg.infoText.setText(self.tr("Dataset unavailable"))
         self.dlg.infoText.setStyleSheet("color: red")
         self.dlg.idTextEdit.setEnabled(False)
